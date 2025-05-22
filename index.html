@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Drop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+
+  <div id="gameContainer">
+    <div id="scoreDisplay" class="stats">Score: 0</div>
+    <div id="livesDisplay" class="stats">Lives: 3</div>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="explosionContainer" class="hidden">
+      <img id="explosionImg" src="effects/explosion.gif" alt="Explosion">
+    </div>
+  </div>
+
+  <input id="inputField" type="text" placeholder="Введите слово…" autocomplete="off"/>
+
+  <div id="startScreen" class="overlay">
+    <h1>Правила</h1>
+    <p>… сюда правила …</p>
+    <p>Нажмите <b>SPACE</b> чтобы начать</p>
+  </div>
+  <div id="pauseScreen" class="overlay hidden">
+    <h1>Пауза</h1>
+    <p>Нажмите <b>SPACE</b> чтобы вернуться</p>
+  </div>
+  <div id="overScreen" class="overlay hidden">
+    <h1>Game Over</h1>
+    <p id="overStats"></p>
+    <p>Нажмите <b>SPACE</b> чтобы начать заново</p>
+  </div>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

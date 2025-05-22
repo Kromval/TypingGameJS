@@ -1,0 +1,170 @@
+/* === CSS-переменные для тем === */
+:root {
+  --bg-color: #f0f0f0;
+  --fg-color: #000000;
+  --canvas-bg: #ffffff;
+  --canvas-border: #000000;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --overlay-fg: #ffffff;
+  --input-bg: #ffffff;
+  --input-fg: #000000;
+  --input-placeholder: #888888;
+}
+
+body.light-theme {
+  --bg-color: #f0f0f0;
+  --fg-color: #000000;
+  --canvas-bg: #ffffff;
+  --canvas-border: #000000;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --overlay-fg: #ffffff;
+  --input-bg: #ffffff;
+  --input-fg: #000000;
+  --input-placeholder: #888888;
+}
+
+body.dark-theme {
+  --bg-color: #121212;
+  --fg-color: #eeeeee;
+  --canvas-bg: #1e1e1e;
+  --canvas-border: #888888;
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --overlay-fg: #ffffff;
+  --input-bg: #333333;
+  --input-fg: #eeeeee;
+  --input-placeholder: #bbbbbb;
+}
+
+/* === Общие сбросы === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* === Контейнер с canvas и статистикой === */
+#gameContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* === Canvas === */
+#gameCanvas {
+  background-color: var(--canvas-bg);
+  border: 2px solid var(--canvas-border);
+  display: block;
+}
+
+/* === Статистика над углами canvas === */
+.stats {
+  position: absolute;
+  top: -30px;              /* поднять над верхом canvas */
+  font-size: 20px;
+  color: var(--fg-color);
+  user-select: none;
+  white-space: nowrap;
+}
+
+#scoreDisplay {
+  left: 0;                 /* левый угол */
+}
+
+#livesDisplay {
+  right: 0;                /* правый угол */
+}
+
+/* === Поле ввода === */
+#inputField {
+  margin-top: 10px;
+  width: 300px;
+  padding: 8px;
+  font-size: 18px;
+  text-align: center;
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--canvas-border);
+  border-radius: 4px;
+}
+
+#inputField::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* === Кнопка переключения темы === */
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--fg-color);
+}
+
+/* === Оверлеи (старт, пауза, Game Over) === */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  color: var(--overlay-fg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.overlay h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+.overlay p {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#gameContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#explosionContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#explosionImg {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+}
