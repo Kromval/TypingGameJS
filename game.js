@@ -212,7 +212,7 @@ export function gameLoop() {
 export function resetGame() {
   words = [];
   score = 0;
-  lives = 5;
+  lives = 6;
   gameOver = false;
   isFrozen = false;
   paused = false;
